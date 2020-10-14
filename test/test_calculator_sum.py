@@ -1,5 +1,5 @@
 import pytest
-from domain.models import Calculator
+from domain.models import Calculator, operation_factory
 from domain.exceptions import ArgumentoInvalidoException
 
 
@@ -10,7 +10,7 @@ def test_calculator_sums_with_2_parms():
   expectation = 30
 
   # act
-  result = Calculator(a, b).sum()
+  result = Calculator(a, b).calculate(operation_factory('+'))
 
   # assert
   assert result == expectation
@@ -22,7 +22,7 @@ def test_calculator_sums_with_2_positive_parms():
   expectation = 4
 
   # act
-  result = Calculator(a, b).sum()
+  result = Calculator(a, b).calculate(operation_factory('+'))
 
   # assert
   assert result == expectation
@@ -34,7 +34,7 @@ def test_calculator_sums_with_2_negatives_parms():
   expectation = -4
 
   # act
-  result = Calculator(a, b).sum()
+  result = Calculator(a, b).calculate(operation_factory('+'))
 
   # assert
   assert result == expectation
@@ -46,7 +46,7 @@ def test_calculator_sums_with_2_mixed_parms():
   expectation = 0
 
   # act
-  result = Calculator(a, b).sum()
+  result = Calculator(a, b).calculate(operation_factory('+'))
 
   # assert
   assert result == expectation
@@ -60,3 +60,8 @@ def test_calculator_sums_with_notnumber_fail_with_argumentoinvalidoexception():
   with pytest.raises(ArgumentoInvalidoException):
     # act
     result = Calculator(a, b)
+
+  # assert
+  with pytest.raises(ArgumentoInvalidoException):
+    # act
+    result = Calculator(b, a)

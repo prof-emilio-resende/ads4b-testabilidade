@@ -1,1 +1,1 @@
-from domain.models.calculator import Calculator
+from domain.models.calculator import Calculator, operation_factory
