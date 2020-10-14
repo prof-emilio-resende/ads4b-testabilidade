@@ -1,0 +1,1 @@
+from domain.logic.structure_fake import Fake

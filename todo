@@ -1,0 +1,13 @@
+1. criar uma calculadora usando os principios SOLID já discutidos
+  [] > subtração e soma apenas
+    _ soma:
+      + a calculadora sabe trabalhar com apenas 2 parametros (a,b)
+      + a calculadora sabe trabalhar com operandos negativos ou positivos (sem modularização)
+      + a calculadora valida o input, se for não numérico lança exceção ArgumentoInvalidoException
+      
+2. aplicar padroes de projeto na construcao dessa calculadora
+  [] > strategy
+  [] > factory method
+3. aplicar um feature toggle na calculadora
+  [] > a calculadora vai ler um arquivo de configuracao, para determinar se ela loga operacao em detalhes ou não
+4. durante o processo de desenvolvimento aplicar os conceitos de TDD
